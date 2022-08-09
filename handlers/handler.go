@@ -39,6 +39,13 @@ func CreateBook(c *fiber.Ctx, database *gorm.DB) error {
 	return nil 
 }
 
+func GetBooks(c *fiber.Ctx, database *gorm.DB) error {
+	books := make([]models.Book, 0)
+	db.QueryAll(database, &books)
+	c.JSON(books)
+	return nil 
+}
+
 // fun CreateAuthor(c *fiber.Ctx, database *gorm.DB) error {
 // 	db.Create(database, &models.Author{
 // 		name: c.Params("name"),

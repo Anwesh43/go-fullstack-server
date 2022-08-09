@@ -15,3 +15,8 @@ func Migrate(db *gorm.DB, tableName string) {
 func Create(db *gorm.DB, obj interface{}) {
 	db.Create(obj)
 }
+
+func QueryAll(db *gorm.DB, obj interface{}) interface{} {
+	db.Find(obj)
+	return obj 
+}
